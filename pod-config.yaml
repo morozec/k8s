@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-server
+  labels:
+    env: prod
+    app: main
+    tier: frontend
+    owner: morozov_andre
+spec:
+  containers:
+    - name: api-server-container
+      image: andreimorozov/api-server
+      ports:
+        - containerPort: 42
+    - name: httpd-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
